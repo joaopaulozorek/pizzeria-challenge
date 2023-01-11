@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:pizzaria_jose/app/features/home/home_controller.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -8,10 +9,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  HomeController homeController = HomeController();
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Home'),
-    );
+    return Scaffold(body: Center(
+      child: FloatingActionButton(onPressed: () {
+        homeController.test();
+      }),
+    ));
   }
 }

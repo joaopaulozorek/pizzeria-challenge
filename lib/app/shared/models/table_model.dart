@@ -13,7 +13,7 @@ class TableModel {
     return TableModel(
         tableId: json['tableId'],
         tableNumber: json['tableNumber'],
-        occupiedTable: json['occupiedTable']);
+        occupiedTable: json['occupiedTable'] == 1 ? true : false);
   }
 
   Map<String, dynamic> toJson() {
