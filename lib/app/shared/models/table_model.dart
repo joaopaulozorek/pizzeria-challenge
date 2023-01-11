@@ -20,7 +20,7 @@ class TableModel {
     return {
       'tableId': tableId,
       'tableNumber': tableNumber,
-      'occupiedTable': occupiedTable,
+      'occupiedTable': occupiedTable == true ? 1 : 0,
     };
   }
 }

@@ -12,10 +12,10 @@ class _HomePageState extends State<HomePage> {
   HomeController homeController = HomeController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(
-      child: FloatingActionButton(onPressed: () {
-        homeController.test();
-      }),
-    ));
+    return Scaffold(
+      body: Center(
+        child: Text('Pizza do zé'),
+      ),
+    );
   }
 }

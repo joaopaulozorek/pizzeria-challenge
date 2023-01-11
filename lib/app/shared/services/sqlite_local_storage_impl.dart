@@ -42,14 +42,53 @@ class SqliteLocalStorageImpl implements LocalStorageInterface {
   }
 
   @override
-  Future<bool> occupyTable(TableModel tableModel) {
-    // TODO: implement occupyTable
-    throw UnimplementedError();
+  Future<bool> occupyTable(TableModel tableModel) async {
+    final db = await database;
+    try {
+      await db!.update(
+        pizzeriaTableName,
+        tableModel.toJson(),
+        where: 'tableId = ?',
+        whereArgs: [tableModel.tableId],
+      );
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
   }
 
   @override
-  Future<bool> vacateTable(TableModel tableModel) {
-    // TODO: implement vacateTable
-    throw UnimplementedError();
+  Future<bool> vacateTable(TableModel tableModel) async {
+    final db = await database;
+    try {
+      await db!.update(
+        pizzeriaTableName,
+        tableModel.toJson(),
+        where: 'tableId = ?',
+        whereArgs: [tableModel.tableId],
+      );
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  @override
+  Future<bool> updateTable(TableModel tableModel) async {
+    final db = await database;
+    try {
+      await db!.update(
+        pizzeriaTableName,
+        tableModel.toJson(),
+        where: 'tableId = ?',
+        whereArgs: [tableModel.tableId],
+      );
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
   }
 }
