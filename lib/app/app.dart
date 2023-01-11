@@ -12,6 +12,7 @@ class App extends StatelessWidget {
         colorSchemeSeed: Colors.blueGrey,
         brightness: Brightness.light,
       ),
+      debugShowCheckedModeBanner: false,
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,
     );
