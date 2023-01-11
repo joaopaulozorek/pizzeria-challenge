@@ -11,26 +11,50 @@ class TableCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 0,
-      color: tableModel.occupiedTable ? Colors.red[200] : Colors.green[200],
-      child: SizedBox(
-        child: Center(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('Mesa'),
-            Text(
-              tableModel.tableNumber.toString(),
-              style: const TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black87),
-            ),
-            Text(tableModel.occupiedTable ? '(Ocupada)' : '(Disponível)'),
-          ],
-        )),
-      ),
-    );
+    if (tableModel.occupiedTable) {
+      return Card(
+        elevation: 0,
+        color: Colors.red[200],
+        child: SizedBox(
+          child: Center(
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text('Mesa'),
+              Text(
+                tableModel.tableNumber.toString(),
+                style: const TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black87),
+              ),
+              const Text('(Ocupada)'),
+            ],
+          )),
+        ),
+      );
+    } else {
+      return Card(
+        elevation: 0,
+        color: Colors.green[200],
+        child: SizedBox(
+          child: Center(
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text('Mesa'),
+              Text(
+                tableModel.tableNumber.toString(),
+                style: const TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black87),
+              ),
+              const Text('(Disponível)'),
+            ],
+          )),
+        ),
+      );
+    }
   }
 }
