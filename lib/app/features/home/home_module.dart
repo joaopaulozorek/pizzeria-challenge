@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:pizzaria_jose/app/features/home/home_controller.dart';
 import 'package:pizzaria_jose/app/shared/services/local_storage_interface.dart';
 import 'package:pizzaria_jose/app/shared/services/sqlite_local_storage_impl.dart';
 
@@ -12,6 +13,7 @@ class HomeModule extends Module {
           isSingleton: true,
           isLazy: false,
         ),
+        Bind<HomeController>((i) => HomeController()),
       ];
 
   @override

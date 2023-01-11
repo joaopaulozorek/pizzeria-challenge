@@ -1,31 +1,45 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:mobx/mobx.dart';
 import 'package:pizzaria_jose/app/shared/models/table_model.dart';
 import 'package:pizzaria_jose/app/shared/services/sqlite_local_storage_impl.dart';
 
-class HomeController {
-  final SqliteLocalStorageImpl db = Modular.get();
-  List<TableModel> tables = [];
+part 'home_controller.g.dart';
+
+class HomeController = _HomeController with _$HomeController;
+
+abstract class _HomeController with Store {
+  final SqliteLocalStorageImpl _db = Modular.get();
+
+  @observable
+  List<TableModel> tableList = [];
+
+  @action
+  initController() async {
+    await _db.initDB();
+    tableList = await _db.getAllTables();
+  }
+
   void test() async {
-    List result = await db.getAllTables();
+    List result = await _db.getAllTables();
     for (TableModel table in result) {
-      tables.add(table);
+      tableList.add(table);
       print("mesa ${table.tableNumber} - ${table.occupiedTable}");
     }
   }
 
   void occupyTable() {
     TableModel newTable = TableModel(
-        tableId: tables.first.tableId,
-        tableNumber: tables.first.tableNumber,
+        tableId: tableList.first.tableId,
+        tableNumber: tableList.first.tableNumber,
         occupiedTable: true);
-    db.occupyTable(newTable);
+    _db.occupyTable(newTable);
   }
 
   void vacateTable() {
     TableModel newTable = TableModel(
-        tableId: tables.first.tableId,
-        tableNumber: tables.first.tableNumber,
+        tableId: tableList.first.tableId,
+        tableNumber: tableList.first.tableNumber,
         occupiedTable: false);
-    db.occupyTable(newTable);
+    _db.occupyTable(newTable);
   }
 }
