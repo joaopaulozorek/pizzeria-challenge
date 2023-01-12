@@ -19,27 +19,15 @@ abstract class _HomeController with Store {
     tableList = await _db.getAllTables();
   }
 
-  void test() async {
-    List result = await _db.getAllTables();
-    for (TableModel table in result) {
-      tableList.add(table);
-      print("mesa ${table.tableNumber} - ${table.occupiedTable}");
+  @action
+  void updateTable(TableModel tableModel) {
+    if (tableModel.occupiedTable) {
+      tableModel.occupiedTable = false;
+      _db.occupyTable(tableModel);
+    } else {
+      tableModel.occupiedTable = true;
+      _db.occupyTable(tableModel);
     }
-  }
-
-  void occupyTable() {
-    TableModel newTable = TableModel(
-        tableId: tableList.first.tableId,
-        tableNumber: tableList.first.tableNumber,
-        occupiedTable: true);
-    _db.occupyTable(newTable);
-  }
-
-  void vacateTable() {
-    TableModel newTable = TableModel(
-        tableId: tableList.first.tableId,
-        tableNumber: tableList.first.tableNumber,
-        occupiedTable: false);
-    _db.occupyTable(newTable);
+    _db.initDB();
   }
 }

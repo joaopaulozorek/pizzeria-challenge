@@ -1,7 +1,7 @@
 class TableModel {
   final int tableId;
   final int tableNumber;
-  final bool occupiedTable;
+  bool occupiedTable;
 
   TableModel({
     required this.tableId,

@@ -33,6 +33,20 @@ mixin _$HomeController on _HomeController, Store {
     return _$initControllerAsyncAction.run(() => super.initController());
   }
 
+  late final _$_HomeControllerActionController =
+      ActionController(name: '_HomeController', context: context);
+
+  @override
+  void updateTable(TableModel tableModel) {
+    final _$actionInfo = _$_HomeControllerActionController.startAction(
+        name: '_HomeController.updateTable');
+    try {
+      return super.updateTable(tableModel);
+    } finally {
+      _$_HomeControllerActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
