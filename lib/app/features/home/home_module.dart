@@ -22,7 +22,7 @@ class HomeModule extends Module {
         ChildRoute(Modular.initialRoute,
             child: (context, args) => const HomePage()),
         ChildRoute('/table',
-            child: (context, args) => TableDatailPage(
+            child: (context, args) => TableDetailPage(
                   tableModel: args.data,
                 )),
       ];

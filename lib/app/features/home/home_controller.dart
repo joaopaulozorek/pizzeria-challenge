@@ -13,6 +13,9 @@ abstract class _HomeController with Store {
   @observable
   List<TableModel> tableList = [];
 
+  @observable
+  late TableModel selectedTableModel;
+
   @action
   initController() async {
     await _db.initDB();
@@ -28,6 +31,6 @@ abstract class _HomeController with Store {
       tableModel.occupiedTable = true;
       _db.occupyTable(tableModel);
     }
-    _db.initDB();
+    initController();
   }
 }
