@@ -26,10 +26,10 @@ abstract class _HomeController with Store {
   void updateTable(TableModel tableModel) {
     if (tableModel.occupiedTable) {
       tableModel.occupiedTable = false;
-      _db.occupyTable(tableModel);
+      _db.updateTable(tableModel);
     } else {
       tableModel.occupiedTable = true;
-      _db.occupyTable(tableModel);
+      _db.updateTable(tableModel);
     }
     initController();
   }
