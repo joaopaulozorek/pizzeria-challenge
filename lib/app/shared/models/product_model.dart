@@ -3,22 +3,19 @@ class ProductModel {
   final String productName;
   final String productDescription;
   final double productPrice;
-  final String productSize;
 
   ProductModel(
       {required this.productId,
       required this.productName,
       required this.productDescription,
-      required this.productPrice,
-      required this.productSize});
+      required this.productPrice});
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
         productId: json['productId'],
         productName: json['productName'],
         productDescription: json['productDescription'],
-        productPrice: json['productPrice'],
-        productSize: json['productSize']);
+        productPrice: json['productPrice']);
   }
   Map<String, dynamic> toJson() {
     return {
@@ -26,7 +23,6 @@ class ProductModel {
       'productName': productName,
       'productDescription': productDescription,
       'productPrice': productPrice,
-      'productSize': productSize,
     };
   }
 }
