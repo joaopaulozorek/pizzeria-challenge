@@ -10,6 +10,7 @@ const String orderId = 'orderId';
 const String orderTableId = 'tableId';
 const String orderPrice = 'orderPrice';
 const String orderDate = 'orderDate';
+const String orderItems = 'orderItems';
 
 const String productId = 'productId';
 const String productName = 'productName';

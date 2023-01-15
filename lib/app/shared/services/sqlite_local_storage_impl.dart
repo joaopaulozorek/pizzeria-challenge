@@ -26,9 +26,9 @@ class SqliteLocalStorageImpl implements LocalStorageInterface {
       await db.execute(
           'CREATE TABLE $pizzeriaTableName($tableId INTEGER PRIMARY KEY, $tableNumber INTEGER, $occupiedTable INTEGER)');
       await db.execute(
-          'CREATE TABLE $pizzeriaOrderTableName($orderTableId INTEGER PRIMARY KEY, $orderId INTEGER, $orderPrice REAL, $orderDate TEXT)');
+          'CREATE TABLE $pizzeriaOrderTableName($orderTableId INTEGER PRIMARY KEY, $orderId INTEGER, $orderPrice REAL, $orderDate TEXT, $orderItems TEXT)');
       await db.execute(
-          'CREATE TABLE $pizzeriaProductTableName($productId INTEGER PRIMARY KEY, $productName TEXT, $productDescription TEXT, $productPrice REAL');
+          'CREATE TABLE $pizzeriaProductTableName($productId INTEGER PRIMARY KEY, $productName TEXT, $productDescription TEXT, $productPrice REAL)');
       Batch batch = db.batch();
       for (int i = 0; i < numberOfTables; i++) {
         batch.insert(pizzeriaTableName,

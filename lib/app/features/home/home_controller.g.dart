@@ -25,6 +25,22 @@ mixin _$HomeController on _HomeController, Store {
     });
   }
 
+  late final _$selectedTableModelAtom =
+      Atom(name: '_HomeController.selectedTableModel', context: context);
+
+  @override
+  TableModel get selectedTableModel {
+    _$selectedTableModelAtom.reportRead();
+    return super.selectedTableModel;
+  }
+
+  @override
+  set selectedTableModel(TableModel value) {
+    _$selectedTableModelAtom.reportWrite(value, super.selectedTableModel, () {
+      super.selectedTableModel = value;
+    });
+  }
+
   late final _$initControllerAsyncAction =
       AsyncAction('_HomeController.initController', context: context);
 
@@ -50,7 +66,8 @@ mixin _$HomeController on _HomeController, Store {
   @override
   String toString() {
     return '''
-tableList: ${tableList}
+tableList: ${tableList},
+selectedTableModel: ${selectedTableModel}
     ''';
   }
 }
