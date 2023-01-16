@@ -72,12 +72,6 @@ class _TableDetailPageState extends State<TableDetailPage> {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton.extended(
-            onPressed: () {
-              Modular.to.pushNamed('order/', arguments: widget.tableModel);
-            },
-            label: const Text('Anotar Pedido'),
-            icon: const Icon(Icons.add)),
       );
     });
   }
