@@ -23,17 +23,31 @@ class _HomePageState extends State<HomePage> {
           title: const Text('Pizzaria do José'),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: GridView.builder(
-            itemCount: _homeController.tableList.length,
-            itemBuilder: (context, index) {
-              return TableCard(tableModel: _homeController.tableList[index]);
-            },
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              crossAxisSpacing: 5,
-              mainAxisSpacing: 5,
-              maxCrossAxisExtent: 150,
-            ),
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text(
+                'Controle de mesas',
+                style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
+              ),
+              const Text(
+                  'Clique em cada uma das mesas para alterar sua disponibilidade:'),
+              Expanded(
+                child: GridView.builder(
+                  itemCount: _homeController.tableList.length,
+                  itemBuilder: (context, index) {
+                    return TableCard(
+                        tableModel: _homeController.tableList[index]);
+                  },
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    crossAxisSpacing: 5,
+                    mainAxisSpacing: 5,
+                    maxCrossAxisExtent: 150,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       );
