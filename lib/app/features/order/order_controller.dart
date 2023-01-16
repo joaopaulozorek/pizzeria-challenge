@@ -24,7 +24,6 @@ abstract class _OrderController with Store {
   initController() async {
     await _db.initDB();
     orderList = await _db.getAllOrders();
-    productList = await _db.getAllProducts();
   }
 
   @action

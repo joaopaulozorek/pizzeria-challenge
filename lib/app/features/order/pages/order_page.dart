@@ -44,9 +44,9 @@ class _OrderPageState extends State<OrderPage> {
               const SizedBox(
                 height: 20,
               ),
-              Text(
-                'Selecione os produtos:',
-                style: const TextStyle(
+              const Text(
+                'Adicione itens ao pedido:',
+                style: TextStyle(
                   fontSize: 20.0,
                 ),
               ),
