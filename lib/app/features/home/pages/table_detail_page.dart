@@ -69,19 +69,12 @@ class _TableDetailPageState extends State<TableDetailPage> {
                       : 'OCUPAR MESA',
                 ),
               ),
-              const SizedBox(
-                height: 30,
-              ),
-              const Text(
-                'Ultimos Pedidos',
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-              ),
             ],
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
             onPressed: () {
-              Modular.to.navigate('order/', arguments: widget.tableModel);
+              Modular.to.pushNamed('order/', arguments: widget.tableModel);
             },
             label: const Text('Anotar Pedido'),
             icon: const Icon(Icons.add)),
